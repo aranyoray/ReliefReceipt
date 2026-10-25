@@ -1,0 +1,4 @@
+/* The design system is the stylesheet. Tailwind was imported here before and
+   is not any more: nothing in either app uses a utility class, and its
+   generated `.ring` collided with the dial in the shared chart set. */
+@import "../ui/tokens.css";

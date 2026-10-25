@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ReliefReceipt">
+  <title>ReliefReceipt</title>
+  <rect width="64" height="64" rx="14" fill="#124045"/>
+  <!-- the same slip, with the balance struck off instead of flagged -->
+  <path d="M20 15a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v30l-3 6-3-6-3 6-3-6-3 6-3-6-3 6-3-6z" fill="#ffffff"/>
+  <rect x="25" y="19" width="14" height="3" rx="1.5" fill="#124045" opacity=".75"/>
+  <rect x="25" y="25" width="9" height="3" rx="1.5" fill="#124045" opacity=".4"/>
+  <path d="m25.5 33.5 3.6 3.8 7.6-8.2" fill="none" stroke="#1a6b43" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
