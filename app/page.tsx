@@ -43,6 +43,11 @@ export default function Page() {
       }
     >
       <Relief view={view} />
+      {/* Sits outside Relief so it shows under both views, and outside the
+          shared ui/ directory so it stays this product's own line. */}
+      <p className="fine" style={{ textAlign: "center", marginTop: 26 }}>
+        Made with &lt;3 by Sanjay Adigopula
+      </p>
     </Shell>
   );
 }
