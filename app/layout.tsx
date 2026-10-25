@@ -12,15 +12,15 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#124045" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a2e33" },
-  ],
+  themeColor: "#124045",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Light only. The design system's dark rules are all guarded behind
+  // :root:not([data-theme="light"]), so declaring the theme here turns them
+  // off for good, including for a reader whose system is set to dark.
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body>{children}</body>
     </html>
   );

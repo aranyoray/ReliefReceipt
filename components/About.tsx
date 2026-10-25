@@ -12,7 +12,6 @@ import {
   Lede,
   ListRow,
   Stack,
-  ThemeToggle,
 } from "@/ui";
 import { useCareUrl } from "@/lib/links";
 
@@ -38,7 +37,6 @@ export function About() {
       nav={nav}
       active="about"
       onNavigate={() => {}}
-      right={<ThemeToggle />}
       narrow
     >
       <Stack>
