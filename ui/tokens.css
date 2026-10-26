@@ -1,81 +1,81 @@
 /* ============================================================================
-   Receipt design system
+   CareReceipt
    ----------------------------------------------------------------------------
-   The look of a printed receipt: cream paper, black ink, a warm rule between
-   rows, orange for the thing to press and teal for the chrome around it.  The
-   whole app is set in a monospace face, the way a till roll is, and figures
-   are tabular inside columns so money lines up.
+   A bill is a document, so the app is built like one: white sheets on a cool
+   grey desk, hairline rules, navy chrome, and a single confident blue for the
+   thing to press.  Nothing is decorative — the only colour that carries
+   meaning is the one on a finding.
 
-   Mobile first.  On a phone the app reads as a native one: a teal app bar,
-   paper cards on a warmer canvas, a fixed bottom tab bar, bottom sheets for
-   input and a sticky primary action.  The same pieces widen into a two column
-   working layout on a desktop browser, where the tab bar becomes a pill row.
+   Figures are set in the UI face with tabular digits rather than a monospace
+   one.  They still line up in columns; they just do not read as a till roll.
+   That look belongs to Billculate, which is a different product.
 
-   Light only.  A receipt has no dark mode.
+   Mobile first.  On a phone this reads as a native app: a navy app bar, sheets
+   on a tinted canvas, a fixed bottom tab bar, bottom sheets for input and a
+   sticky primary action.  The same pieces widen into a two column working
+   layout on a desktop browser, where the tab bar becomes a pill row.
+
+   Light only.
    ========================================================================= */
 
 :root {
   /* brand */
-  --rc-teal:        #124045;
-  --rc-teal-deep:   #0a2e33;
-  --rc-teal-bright: #1d7a73;
-  --rc-teal-pale:   #cfe4e1;
-  --rc-cream:       #f5f0e3;
-  --rc-orange:      #d97a2b;
-  --rc-orange-deep: #b4601c;
-  --rc-rule:        #b9b3a3;
+  --rc-navy:       #16233f;
+  --rc-navy-deep:  #0e1830;
+  --rc-navy-soft:  #2b4a8a;
+  --rc-blue:       #2563eb;
+  --rc-blue-pale:  #dce7fd;
 
-  /* surfaces: paper on a slightly darker roll */
-  --bg:        #e9e2d0;
-  --surface:   #faf7ec;
-  --surface-2: #f0ebda;
-  --surface-3: #f5f0e3;
-  --line:      #d4cdb9;
-  --line-soft: #e3dcc9;
+  /* surfaces */
+  --bg:        #eef1f5;
+  --surface:   #ffffff;
+  --surface-2: #f1f4f8;
+  --surface-3: #f8fafc;
+  --line:      #dde3ea;
+  --line-soft: #e9eef3;
 
   /* ink */
-  --ink:       #1a1a1a;
-  --ink-soft:  #575757;
-  --ink-faint: #85806f;
+  --ink:       #0d1522;
+  --ink-soft:  #4a5566;
+  --ink-faint: #7d8899;
 
-  /* on the teal app bar */
+  /* on the navy app bar */
   --on-brand:       #ffffff;
-  --on-brand-soft:  rgba(255, 255, 255, .74);
-  --on-brand-faint: rgba(255, 255, 255, .5);
-  --on-brand-line:  rgba(255, 255, 255, .2);
-  --on-brand-fill:  rgba(255, 255, 255, .13);
+  --on-brand-soft:  rgba(255, 255, 255, .72);
+  --on-brand-faint: rgba(255, 255, 255, .48);
+  --on-brand-line:  rgba(255, 255, 255, .18);
+  --on-brand-fill:  rgba(255, 255, 255, .12);
 
   /* status — reserved, never used as a chart series colour */
-  --danger:     #bf452e;
-  --danger-bg:  #f6e2db;
-  --warn:       #8a5712;
-  --warn-bg:    #f6ead0;
-  --ok:         #1a5230;
-  --ok-bg:      #dcecdf;
-  --info:       #2b6bb0;
-  --info-bg:    #e1eaf6;
+  --danger:     #c0392b;
+  --danger-bg:  #fdecea;
+  --warn:       #8a5a09;
+  --warn-bg:    #fdf3e0;
+  --ok:         #0e7c5a;
+  --ok-bg:      #e5f4ef;
+  --info:       #1d4ed8;
+  --info-bg:    #eaf1fe;
 
   /* chart ink.  Two series: the benchmark and what was actually billed.
-     Validated for CVD separation and contrast against the paper surface with
-     the dataviz palette checker before use. */
-  --s1:        #1f6f68;   /* fair / benchmark */
-  --s1-soft:   #cde0dc;
-  --s2:        #d97a2b;   /* billed / charged */
-  --s2-soft:   #f3ddc4;
-  --track:     #e1dac6;
-  --grid:      #ded7c3;
+     Blue against amber keeps them apart for every kind of colour vision, and
+     neither one is a status colour. */
+  --s1:        #2563eb;   /* fair / benchmark */
+  --s1-soft:   #d8e4fd;
+  --s2:        #d97706;   /* billed / charged */
+  --s2-soft:   #f8e4c6;
+  --track:     #e4e9f0;
+  --grid:      #e2e8f0;
 
-  /* A receipt is printed, not rounded. */
-  --radius-xl: 14px;
-  --radius-l:  10px;
-  --radius:    8px;
-  --radius-s:  6px;
+  --radius-xl: 20px;
+  --radius-l:  16px;
+  --radius:    12px;
+  --radius-s:  9px;
 
-  --shadow:    0 1px 2px rgba(60, 50, 30, .07), 0 8px 22px rgba(60, 50, 30, .10);
-  --shadow-up: 0 -6px 20px rgba(60, 50, 30, .14);
+  --shadow:    0 1px 2px rgba(13, 21, 34, .05), 0 10px 26px rgba(13, 21, 34, .07);
+  --shadow-up: 0 -6px 20px rgba(13, 21, 34, .10);
 
-  --font-ui: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
-             "Liberation Mono", monospace;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             "Helvetica Neue", Arial, sans-serif;
   --font-num: var(--font-ui);
 
   --tabbar-h: 58px;
@@ -107,7 +107,7 @@ input, textarea, select { font: inherit; color: inherit; }
 a { color: inherit; text-decoration: none; }
 
 :where(button, a, input, textarea, select, [tabindex]):focus-visible {
-  outline: 2px solid var(--rc-orange-deep);
+  outline: 2px solid var(--rc-blue);
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -128,7 +128,7 @@ a { color: inherit; text-decoration: none; }
 /* The coloured bar. On a phone it is the top of the screen and the page's
    first card rides up into it; on a desktop it is a plain header strip. */
 .appbar {
-  background: var(--rc-teal);
+  background: var(--rc-navy);
   color: var(--on-brand);
   padding-top: env(safe-area-inset-top, 0px);
   position: relative;
@@ -148,7 +148,7 @@ a { color: inherit; text-decoration: none; }
 .brand { display: flex; align-items: center; gap: 9px; font-weight: 650; letter-spacing: -.01em; }
 .brand-mark {
   width: 26px; height: 26px; border-radius: 8px; flex: none;
-  background: linear-gradient(145deg, var(--rc-teal-bright), var(--rc-teal-deep));
+  background: linear-gradient(145deg, var(--rc-blue), var(--rc-navy-deep));
   box-shadow: inset 0 0 0 1px var(--on-brand-line);
   display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 700;
 }
@@ -170,12 +170,12 @@ a { color: inherit; text-decoration: none; }
 .nav { display: none; gap: 2px; margin-left: auto; }
 .nav-item {
   display: inline-flex; align-items: center; gap: 7px;
-  padding: 8px 14px; border-radius: var(--radius);
+  padding: 8px 14px; border-radius: 999px;
   font-size: 14px; font-weight: 550; color: var(--on-brand-soft);
   transition: background .12s ease, color .12s ease;
 }
 .nav-item:hover { background: var(--on-brand-fill); color: var(--on-brand); }
-.nav-item[aria-selected="true"] { background: var(--on-brand); color: var(--rc-teal); }
+.nav-item[aria-selected="true"] { background: var(--on-brand); color: var(--rc-navy); }
 
 /* bottom tab bar, phones only */
 .tabbar {
@@ -184,8 +184,8 @@ a { color: inherit; text-decoration: none; }
   z-index: 30;
   display: flex;
   background: var(--surface);
-  border-top: 1px solid var(--rc-rule);
-  box-shadow: 0 -2px 10px rgba(60, 50, 30, .07);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -2px 10px rgba(13, 21, 34, .06);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .tab {
@@ -196,12 +196,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-faint);
   position: relative;
 }
-.tab[aria-selected="true"] { color: var(--rc-orange-deep); }
-.tab[aria-selected="true"]::after {
-  content: "";
-  position: absolute; left: 50%; bottom: 7px; transform: translateX(-50%);
-  width: 16px; height: 2px; border-radius: 1px; background: var(--rc-orange);
-}
+.tab[aria-selected="true"] { color: var(--rc-blue); }
 .tab-dot {
   position: absolute; top: 6px; right: 50%; transform: translateX(14px);
   width: 6px; height: 6px; border-radius: 999px; background: var(--danger);
@@ -225,7 +220,7 @@ a { color: inherit; text-decoration: none; }
 
 .card {
   background: var(--surface);
-  border: 1px solid var(--rc-rule);
+  border: 1px solid var(--line);
   border-radius: var(--radius-l);
   padding: 16px;
 }
@@ -238,13 +233,13 @@ a { color: inherit; text-decoration: none; }
 .row     { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .spacer  { margin-left: auto; }
 
-.h1   { font-size: 21px; font-weight: 700; letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+.h1   { font-size: 22px; font-weight: 680; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
 .h2   { font-size: 15.5px; font-weight: 650; letter-spacing: -.01em; margin: 0; }
 .lede { color: var(--ink-soft); margin: 0; max-width: 62ch; font-size: 14.5px; }
 .fine { font-size: 12.5px; color: var(--ink-faint); margin: 0; }
 
 .eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  font-size: 11px; font-weight: 650; letter-spacing: .085em; text-transform: uppercase;
   color: var(--ink-faint); margin: 0;
 }
 
@@ -252,20 +247,18 @@ a { color: inherit; text-decoration: none; }
 
 .badge {
   display: inline-flex; align-items: center; gap: 4px;
-  padding: 2px 7px; border-radius: 4px;
-  font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
-  background: transparent; color: var(--ink-soft);
-  box-shadow: inset 0 0 0 1px currentColor;
+  padding: 3px 8px; border-radius: 999px;
+  font-size: 11px; font-weight: 650; letter-spacing: .03em;
+  background: var(--surface-2); color: var(--ink-soft);
   white-space: nowrap;
 }
-.badge.danger { color: var(--danger); }
-.badge.warn   { color: var(--warn); }
-.badge.ok     { color: var(--ok); }
-.badge.info   { color: var(--info); }
-.badge.new    { color: var(--rc-orange); }
-.appbar .badge.new { color: #eda45c; }
+.badge.danger { background: var(--danger-bg); color: var(--danger); }
+.badge.warn   { background: var(--warn-bg);   color: var(--warn); }
+.badge.ok     { background: var(--ok-bg);     color: var(--ok); }
+.badge.info   { background: var(--info-bg);   color: var(--info); }
+.badge.new    { background: var(--rc-blue); color: #fff; }
 
-.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.num { font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 
 /* figures ---------------------------------------------------------------- */
 
@@ -280,7 +273,7 @@ a { color: inherit; text-decoration: none; }
 
 /* the one big number a screen leads with: proportional digits on purpose */
 .hero { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
-.hero-v { font-size: 38px; font-weight: 700; letter-spacing: -.025em; line-height: 1.05; }
+.hero-v { font-size: 40px; font-weight: 680; letter-spacing: -.035em; line-height: 1.05; }
 .hero-k { font-size: 13px; color: var(--ink-soft); }
 .hero-v.danger { color: var(--danger); }
 .hero-v.ok     { color: var(--ok); }
@@ -332,18 +325,18 @@ a { color: inherit; text-decoration: none; }
 
 .seg {
   display: flex; gap: 2px; padding: 3px;
-  background: var(--surface-2); border-radius: var(--radius);
+  background: var(--surface-2); border-radius: 999px;
 }
 .seg.on-brand { background: var(--on-brand-fill); }
 .seg-btn {
-  flex: 1; padding: 7px 12px; border-radius: var(--radius-s);
+  flex: 1; padding: 7px 12px; border-radius: 999px;
   font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
   transition: background .14s ease, color .14s ease;
   white-space: nowrap;
 }
 .seg.on-brand .seg-btn { color: var(--on-brand-soft); }
-.seg-btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(60,50,30,.12); }
-.seg.on-brand .seg-btn[aria-selected="true"] { background: var(--on-brand); color: var(--rc-teal); }
+.seg-btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(10,46,51,.08); }
+.seg.on-brand .seg-btn[aria-selected="true"] { background: var(--on-brand); color: var(--rc-navy); }
 
 /* stage stepper ---------------------------------------------------------- */
 
@@ -351,10 +344,10 @@ a { color: inherit; text-decoration: none; }
 .step { flex: 1; display: flex; flex-direction: column; gap: 6px; }
 .step-bar { height: 3px; border-radius: 999px; background: var(--line); }
 .step.done .step-bar { background: var(--s1); }
-.step.now  .step-bar { background: var(--rc-orange); }
+.step.now  .step-bar { background: var(--warn); }
 .step-k { font-size: 11.5px; color: var(--ink-faint); font-weight: 600; }
 .step.done .step-k { color: var(--ink-soft); }
-.step.now  .step-k { color: var(--rc-orange-deep); }
+.step.now  .step-k { color: var(--warn); }
 
 /* chips, pills ----------------------------------------------------------- */
 
@@ -366,11 +359,11 @@ a { color: inherit; text-decoration: none; }
 }
 .chips.scroll::-webkit-scrollbar { display: none; }
 .chip {
-  padding: 7px 13px; border-radius: var(--radius-s); font-size: 13.5px; font-weight: 500;
+  padding: 7px 13px; border-radius: 999px; font-size: 13.5px; font-weight: 550;
   border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
   white-space: nowrap; scroll-snap-align: start;
 }
-.chip[aria-pressed="true"] { background: var(--rc-teal); color: var(--rc-cream); border-color: var(--rc-teal); }
+.chip[aria-pressed="true"] { background: var(--rc-navy); color: #fff; border-color: transparent; }
 
 /* controls --------------------------------------------------------------- */
 
@@ -378,18 +371,18 @@ a { color: inherit; text-decoration: none; }
 .input, .textarea, .select {
   width: 100%; padding: 12px 13px;
   background: var(--surface-3); color: var(--ink);
-  border: 1px solid var(--rc-rule); border-radius: var(--radius-s);
+  border: 1px solid var(--line); border-radius: var(--radius);
   font-size: 16px; /* keeps iOS Safari from zooming on focus */
 }
 .textarea { font-family: var(--font-num); font-size: 13px; line-height: 1.55; resize: vertical; min-height: 160px; }
-.input:focus, .textarea:focus, .select:focus { border-color: var(--rc-orange); background: var(--surface); }
+.input:focus, .textarea:focus, .select:focus { border-color: var(--rc-blue); background: var(--surface); }
 .input.plain { background: var(--surface); }
 
 /* a field that opens the keypad sheet instead of the system keyboard */
 .tapfield {
   width: 100%; display: flex; align-items: center; gap: 10px;
-  padding: 12px 13px; border-radius: var(--radius-s);
-  background: var(--surface-3); border: 1px solid var(--rc-rule);
+  padding: 12px 13px; border-radius: var(--radius);
+  background: var(--surface-3); border: 1px solid var(--line);
   font-size: 16px; text-align: left;
 }
 .tapfield .ph { color: var(--ink-faint); }
@@ -397,34 +390,26 @@ a { color: inherit; text-decoration: none; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 44px; padding: 11px 18px; border-radius: var(--radius);
-  font-size: 15px; font-weight: 600;
+  min-height: 44px; padding: 11px 18px; border-radius: 999px;
+  font-size: 15px; font-weight: 620;
   background: var(--surface-2); color: var(--ink);
-  border: 1px solid var(--line);
   transition: filter .12s ease, background .12s ease;
 }
 .btn:hover:not(:disabled) { filter: brightness(.96); }
 .btn:active:not(:disabled) { transform: translateY(.5px); }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
-.btn.primary { background: var(--rc-orange); border-color: var(--rc-orange); color: #fff; }
-.btn.primary:hover:not(:disabled) { background: var(--rc-orange-deep); border-color: var(--rc-orange-deep); filter: none; }
-.btn.quiet { background: transparent; border-color: transparent; color: var(--ink-soft); min-height: 38px; padding: 8px 12px; }
+.btn.primary { background: var(--rc-navy); color: #fff; box-shadow: 0 1px 2px rgba(13,21,34,.18); }
+.btn.primary:hover:not(:disabled) { background: var(--rc-navy-soft); filter: none; }
+.btn.quiet { background: transparent; color: var(--ink-soft); min-height: 38px; padding: 8px 12px; }
 .btn.quiet:hover:not(:disabled) { background: var(--surface-2); }
 .btn.wide { width: 100%; }
 .btn.small { min-height: 34px; padding: 6px 13px; font-size: 13.5px; }
 
-/* A note is printed on the same paper, marked down the side in the colour of
-   whatever it is telling you. A filled block of colour fights the roll. */
-.note {
-  padding: 11px 13px; border-radius: var(--radius-s); font-size: 13.5px;
-  background: var(--surface-3);
-  border: 1px solid var(--line-soft);
-  border-left: 3px solid var(--line);
-}
-.note.info   { color: var(--info);   border-left-color: var(--info); }
-.note.warn   { color: var(--warn);   border-left-color: var(--warn); }
-.note.danger { color: var(--danger); border-left-color: var(--danger); }
-.note.ok     { color: var(--ok);     border-left-color: var(--ok); }
+.note { padding: 12px 13px; border-radius: var(--radius); font-size: 13.5px; }
+.note.info   { background: var(--info-bg);   color: var(--info); }
+.note.warn   { background: var(--warn-bg);   color: var(--warn); }
+.note.danger { background: var(--danger-bg); color: var(--danger); }
+.note.ok     { background: var(--ok-bg);     color: var(--ok); }
 
 .empty { padding: 40px 20px; text-align: center; color: var(--ink-faint); font-size: 14px; }
 
@@ -444,7 +429,7 @@ a { color: inherit; text-decoration: none; }
 
 .sheet-backdrop {
   position: fixed; inset: 0; z-index: 40;
-  background: rgba(26, 22, 14, .42);
+  background: rgba(7, 20, 21, .42);
   animation: fade .16s ease;
 }
 .sheet {
@@ -476,13 +461,13 @@ a { color: inherit; text-decoration: none; }
 .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .key {
   min-height: 52px; border-radius: var(--radius);
-  background: var(--surface-2); border: 1px solid var(--line);
+  background: var(--surface-2);
   font-size: 21px; font-weight: 600;
   font-variant-numeric: tabular-nums;
   display: grid; place-items: center;
 }
-.key:active { background: var(--s2-soft); }
-.key.fn { background: transparent; border-color: transparent; color: var(--ink-soft); font-size: 15px; font-weight: 600; }
+.key:active { background: var(--rc-blue-pale); }
+.key.fn { background: transparent; color: var(--ink-soft); font-size: 15px; font-weight: 600; }
 .key.fn:active { background: var(--surface-2); }
 
 /* charts ----------------------------------------------------------------- */
