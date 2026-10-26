@@ -6,11 +6,6 @@ ReliefReceipt works out what a household is entitled to under its own state's
 rules, shows where it sits against the two thresholds in that policy, and
 writes the application letter.
 
-Its sister product, [CareReceipt](https://github.com/aranyoray/CareReceipt),
-answers the other half: *is this bill wrong?* The two were one monorepo until
-they were split into a repository each; the engine under `lib/engine` and the
-design system under `ui` are vendored into both, identical on each side.
-
 ```
 app/          the workspace route and /about
 components/   Relief (inputs panel and the letter), Envelope (the reveal), About
@@ -23,19 +18,15 @@ public/       county geography and the ZIP crosswalk
 
 ```bash
 npm install
-npm run dev        # localhost:3001
+npm run dev        # localhost:3000
 npm run build
 npm run typecheck
 ```
 
-Port 3001 is deliberate: CareReceipt runs on 3000 and the two link to each
-other, resolving the neighbour from the page's own origin in development.
-
 ## The interface
 
 A desktop workspace that fills the window. A navy bar runs the full width with
-the product's sections as tabs: Assistance, Bill check (a link to CareReceipt)
-and About.
+the product's sections as tabs: Assistance and About.
 
 Assistance is one screen. Down the left is a full-height panel that scrolls on
 its own, with plain inputs for ZIP code, income, household size and balance

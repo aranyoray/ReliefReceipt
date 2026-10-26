@@ -12,7 +12,6 @@ import {
   ListRow,
   Stack,
 } from "@/ui";
-import { useCareUrl } from "@/lib/links";
 
 /**
  * Who made this.
@@ -21,11 +20,9 @@ import { useCareUrl } from "@/lib/links";
  * The profile sits on the left and the work on the right, filling the window.
  */
 export function About() {
-  const careUrl = useCareUrl();
 
   const nav: NavItem[] = [
     { id: "assistance", label: "Assistance", href: "/" },
-    { id: "care", label: "Bill check", href: careUrl },
     { id: "about", label: "About", href: "/about" },
   ];
 

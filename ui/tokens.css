@@ -1,5 +1,5 @@
 /* ============================================================================
-   CareReceipt
+   ReliefReceipt
    ----------------------------------------------------------------------------
    A bill is a document, so the app is built like one: white sheets on a cool
    grey desk, hairline rules, navy chrome, and a single confident blue for the
@@ -8,7 +8,6 @@
 
    Figures are set in the UI face with tabular digits rather than a monospace
    one.  They still line up in columns; they just do not read as a till roll.
-   That look belongs to Billculate, which is a different product.
 
    A desktop workspace.  A navy bar runs the full width with the sections as
    tabs; under it the window is split, inputs in a full-height panel on the

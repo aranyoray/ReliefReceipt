@@ -7,7 +7,7 @@ export * from "./icons";
 export * from "./charts";
 
 /* ============================================================================
-   Shared primitives for CareReceipt and ReliefReceipt.
+   Shared UI primitives.
 
    Built for a desktop workspace: inputs are ordinary native controls (plain
    inputs, dropdowns, checkboxes) in a panel down the left, and results sit on
