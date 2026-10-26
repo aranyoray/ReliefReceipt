@@ -12,8 +12,8 @@ they were split into a repository each; the engine under `lib/engine` and the
 design system under `ui` are vendored into both, identical on each side.
 
 ```
-app/          one route, the shell and the two tabs
-components/   Relief: what you qualify for, and the letter
+app/          the workspace route and /about
+components/   Relief (inputs panel and the letter), Envelope (the reveal), About
 lib/engine/   charity-care rules, the FPL tables, geo, the bill audit
 ui/           design system: tokens, primitives, charts, icons, app shell
 public/       county geography and the ZIP crosswalk
@@ -33,17 +33,21 @@ other, resolving the neighbour from the page's own origin in development.
 
 ## The interface
 
-Built for a phone browser first and widened for a desktop one.
+A desktop workspace that fills the window. A navy bar runs the full width with
+the product's sections as tabs: Assistance, Bill check (a link to CareReceipt)
+and About.
 
-**On a phone** it is an app: a teal bar at the top, cards on a tinted canvas,
-a fixed tab bar at the bottom, and a segmented control over the two views.
-Numeric fields — income, household size, balance owed — open a keypad in a
-bottom sheet rather than letting the system keyboard shove the page around.
+Assistance is one screen. Down the left is a full-height panel that scrolls on
+its own, with plain inputs for ZIP code, income, household size and balance
+owed, and a **Prepare my letter** button. The right holds the result. Until a
+letter is prepared it shows a closed navy-and-white envelope; on the button the
+flap opens back on its hinge, the letter slides up out of the envelope, the
+envelope drops away below and the letter settles at full width. What the
+household qualifies for sits at the top of the letter and the letter text, with
+its copy button, below. Reduced motion skips straight to the letter.
 
-**From 860px** the tab bar becomes a pill row in the header and the page holds
-to a readable width.
-
-Both run light and dark from the same tokens, with a toggle for pinning one.
+Narrow windows stack the panel above the result. There are no bottom sheets,
+keypads, segmented controls or phone-style tab bars. Light only.
 
 ## What it computes
 

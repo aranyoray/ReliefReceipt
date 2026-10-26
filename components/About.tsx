@@ -3,7 +3,6 @@
 import { Shell, type NavItem } from "@/ui/Shell";
 import {
   Card,
-  Fine,
   H1,
   H2,
   IconDoc,
@@ -18,16 +17,16 @@ import { useCareUrl } from "@/lib/links";
 /**
  * Who made this.
  *
- * The tabs are links rather than view switches here, since the two views they
- * select live on the other route.
+ * The tabs are links here: the assistance workspace lives on the other route.
+ * The profile sits on the left and the work on the right, filling the window.
  */
 export function About() {
   const careUrl = useCareUrl();
 
   const nav: NavItem[] = [
-    { id: "position", label: "Assistance", icon: <IconRelief />, href: "/" },
-    { id: "letter", label: "Letter", icon: <IconDoc />, href: "/?view=letter" },
-    { id: "care", label: "Bill check", icon: <IconReceipt />, href: careUrl },
+    { id: "assistance", label: "Assistance", href: "/" },
+    { id: "care", label: "Bill check", href: careUrl },
+    { id: "about", label: "About", href: "/about" },
   ];
 
   return (
@@ -36,10 +35,8 @@ export function About() {
       mark="R"
       nav={nav}
       active="about"
-      onNavigate={() => {}}
-      narrow
     >
-      <Stack>
+      <div className="about">
         <Card raised>
           <Stack>
             <div className="row" style={{ gap: 16, flexWrap: "nowrap" }}>
@@ -62,7 +59,7 @@ export function About() {
               />
               <div className="stack-s" style={{ minWidth: 0 }}>
                 <H1>Sanjay Adigopula</H1>
-                <Fine>Builder, Indianapolis</Fine>
+                <Lede>Builder, Indianapolis</Lede>
               </div>
             </div>
             <Lede>
@@ -72,6 +69,7 @@ export function About() {
           </Stack>
         </Card>
 
+        <Stack>
         <Card>
           <Stack tight>
             <H2>What he is building</H2>
@@ -108,7 +106,8 @@ export function About() {
             sub="Built with input from clinical advisors and community health workers"
           />
         </Card>
-      </Stack>
+        </Stack>
+      </div>
     </Shell>
   );
 }
