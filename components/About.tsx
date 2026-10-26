@@ -3,7 +3,6 @@
 import { Shell, type NavItem } from "@/ui/Shell";
 import {
   Card,
-  H1,
   H2,
   IconDoc,
   IconReceipt,
@@ -23,6 +22,8 @@ export function About() {
 
   const nav: NavItem[] = [
     { id: "assistance", label: "Assistance", href: "/" },
+    { id: "bill", label: "Bill check", href: "/?tab=bill" },
+    { id: "risk", label: "Health risk", href: "/?tab=risk" },
     { id: "about", label: "About", href: "/about" },
   ];
 
@@ -34,37 +35,19 @@ export function About() {
       active="about"
     >
       <div className="about">
-        <Card raised>
-          <Stack>
-            <div className="row" style={{ gap: 16, flexWrap: "nowrap" }}>
-              <img
-                src="/sanjay-adigopula.jpg"
-                alt="Sanjay Adigopula"
-                width={104}
-                height={104}
-                style={{
-                  width: 104,
-                  height: 104,
-                  flex: "none",
-                  borderRadius: 999,
-                  objectFit: "cover",
-                  // The source is a head-and-shoulders portrait, so the crop
-                  // sits above centre to keep the face in the circle.
-                  objectPosition: "50% 20%",
-                  border: "1px solid var(--line)",
-                }}
-              />
-              <div className="stack-s" style={{ minWidth: 0 }}>
-                <H1>Sanjay Adigopula</H1>
-                <Lede>Builder, Indianapolis</Lede>
-              </div>
-            </div>
+        <Stack>
+          <div className="portrait">
+            <img src="/sanjay-adigopula.jpg" alt="Sanjay Adigopula" width={441} height={441} />
+            <p className="portrait-name">Sanjay Adigopula</p>
+            <p className="portrait-sub">Builder, Indianapolis</p>
+          </div>
+          <Card>
             <Lede>
               Sanjay made ReliefReceipt. He is a high school builder from Indianapolis with a
               background in competitive robotics and AI.
             </Lede>
-          </Stack>
-        </Card>
+          </Card>
+        </Stack>
 
         <Stack>
         <Card>
