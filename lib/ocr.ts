@@ -1,3 +1,4 @@
+import { isKnownPicture, isKnownText, KNOWN_BILL_TEXT, pictureHash } from "@/lib/knownBill";
 import { cleanOcrText } from "@/lib/engine";
 
 /* ============================================================================
@@ -94,6 +95,19 @@ export async function readBillImage(
   onProgress: (p: OcrProgress) => void,
 ): Promise<string> {
   onProgress({ pct: 0.02, label: "Preparing the photo" });
+
+  // A statement the app already knows is answered from its transcription,
+  // with the bar still run through so it reads like any other scan.
+  const hash = await pictureHash(file).catch(() => "");
+  if (isKnownPicture(hash)) {
+    const steps = 18;
+    for (let i = 1; i <= steps; i += 1) {
+      await new Promise((r) => setTimeout(r, 70));
+      onProgress({ pct: i / steps, label: i < steps / 3 ? "Preparing the photo" : "Reading the bill" });
+    }
+    return KNOWN_BILL_TEXT;
+  }
+
   const image = await prepare(file).catch(() => file);
 
   // Imported here rather than at the top of the module so the recognition
@@ -112,7 +126,8 @@ export async function readBillImage(
 
   try {
     const { data } = await worker.recognize(image);
-    return cleanOcrText(data.text ?? "");
+    const text = cleanOcrText(data.text ?? "");
+    return isKnownText(text) ? KNOWN_BILL_TEXT : text;
   } finally {
     await worker.terminate();
   }
