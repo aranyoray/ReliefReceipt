@@ -240,11 +240,6 @@ export function Relief() {
         {snap && stale ? "Prepare it again" : "Prepare my letter"}
       </Button>
       {snap && stale && <Fine>Your details have changed since this letter was prepared.</Fine>}
-      <Fine>
-        Everything stays in this browser. Apply even if you think you earn too much: eligibility is
-        judged per date of service, can be applied retroactively, and hardship provisions sit outside
-        the income test.
-      </Fine>
       <p className="panel-foot">
         Made with &lt;3 by <a href="/about">Sanjay Adigopula</a>
       </p>
@@ -256,7 +251,7 @@ export function Relief() {
       <EnvelopeStage
         shown={!!done}
         play={play}
-        hint={<>Fill in your details, then press{" "}<b>Prepare my letter</b>.</>}
+        hint={<span>Fill in your details, then press <b>Prepare my letter</b>.</span>}
       >
         {done && <Letter a={done} copied={copied} onCopy={copy} />}
       </EnvelopeStage>
@@ -313,7 +308,6 @@ function Letter({ a, copied, onCopy }: { a: Assessed; copied: boolean; onCopy: (
           ]}
         />
       </div>
-      <Note tone="info">{elig.rule.note}</Note>
       {elig.rule.assetNote && <Note tone="warn">{elig.rule.assetNote}</Note>}
       <hr className="ls-fold" />
       <div className="row" id="letter-text">

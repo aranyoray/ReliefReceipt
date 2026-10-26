@@ -1,9 +1,8 @@
 /* ============================================================================
    ReliefReceipt
    ----------------------------------------------------------------------------
-   A bill is a document, so the app is built like one: white sheets on a cool
-   grey desk, hairline rules, navy chrome, and a single confident blue for the
-   thing to press.  Nothing is decorative — the only colour that carries
+   Relief is a letter, so the app is built like correspondence: warm paper,
+   forest-green chrome, serif headings and rounded, pill-shaped controls.  Nothing is decorative — the only colour that carries
    meaning is the one on a finding.
 
    Figures are set in the UI face with tabular digits rather than a monospace
@@ -18,29 +17,29 @@
 
 :root {
   /* brand */
-  --rc-navy:       #16233f;
-  --rc-navy-deep:  #0e1830;
-  --rc-navy-soft:  #2b4a8a;
-  --rc-blue:       #2563eb;
-  --rc-blue-pale:  #dce7fd;
+  --rc-navy:       #1f3d30;
+  --rc-navy-deep:  #142a20;
+  --rc-navy-soft:  #2f6b4f;
+  --rc-blue:       #2f7d55;
+  --rc-blue-pale:  #dcefe3;
 
   /* surfaces */
-  --bg:        #eef1f5;
-  --surface:   #ffffff;
-  --surface-2: #f1f4f8;
-  --surface-3: #f8fafc;
-  --line:      #dde3ea;
-  --line-soft: #e9eef3;
+  --bg:        #f1ece1;
+  --surface:   #fffdf8;
+  --surface-2: #f3eee3;
+  --surface-3: #faf7f0;
+  --line:      #e0d9c8;
+  --line-soft: #ebe5d7;
 
   /* ink */
-  --ink:       #0d1522;
-  --ink-soft:  #4a5566;
-  --ink-faint: #7d8899;
+  --ink:       #1b1f1a;
+  --ink-soft:  #1f2a22;
+  --ink-faint: #2c382f;
 
   /* on the navy app bar */
   --on-brand:       #ffffff;
-  --on-brand-soft:  rgba(255, 255, 255, .72);
-  --on-brand-faint: rgba(255, 255, 255, .48);
+  --on-brand-soft:  rgba(255, 255, 255, .92);
+  --on-brand-faint: rgba(255, 255, 255, .85);
   --on-brand-line:  rgba(255, 255, 255, .18);
   --on-brand-fill:  rgba(255, 255, 255, .12);
 
@@ -51,22 +50,22 @@
   --warn-bg:    #fdf3e0;
   --ok:         #0e7c5a;
   --ok-bg:      #e5f4ef;
-  --info:       #1d4ed8;
-  --info-bg:    #eaf1fe;
+  --info:       #1f6b4a;
+  --info-bg:    #e3f0e8;
 
   /* chart ink.  Two series: the benchmark and what was actually billed.
      Blue against amber keeps them apart for every kind of colour vision, and
      neither one is a status colour. */
-  --s1:        #2563eb;   /* fair / benchmark */
-  --s1-soft:   #d8e4fd;
+  --s1:        #2a5d8f;   /* fair / benchmark */
+  --s1-soft:   #dbe6f2;
   --s2:        #d97706;   /* billed / charged */
   --s2-soft:   #f8e4c6;
   --track:     #e4e9f0;
   --grid:      #e2e8f0;
 
-  --radius-xl: 20px;
-  --radius-l:  16px;
-  --radius:    12px;
+  --radius-xl: 22px;
+  --radius-l:  18px;
+  --radius:    14px;
   --radius-s:  9px;
 
   --shadow:    0 1px 2px rgba(13, 21, 34, .05), 0 10px 26px rgba(13, 21, 34, .07);
@@ -75,6 +74,7 @@
   --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
              "Helvetica Neue", Arial, sans-serif;
   --font-num: var(--font-ui);
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   --tabbar-h: 58px;
 
@@ -410,7 +410,7 @@ a { color: inherit; text-decoration: none; }
   transition: color .12s ease, border-color .12s ease;
 }
 .ws-tab:hover { color: var(--on-brand); }
-.ws-tab[aria-current="page"] { color: var(--on-brand); border-bottom-color: #8fb0ff; }
+.ws-tab[aria-current="page"] { color: var(--on-brand); border-bottom-color: #e9c46a; }
 .ws-dot { width: 7px; height: 7px; border-radius: 999px; background: #ff8a6b; }
 .ws-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 
@@ -601,3 +601,12 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .env-part, .env-flap, .env-letter, .env-crop, .env-stage { transition: none !important; }
 }
+
+/* ReliefReceipt's own voice: serif headings, pill controls. */
+.h1, .h2, h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
+.h1 { font-size: 26px; font-weight: 700; }
+.h2 { font-size: 18px; font-weight: 700; }
+.btn { border-radius: 999px; }
+.input, .select, .textarea { border-radius: 12px; }
+
+::placeholder { color: var(--ink-faint); opacity: .8; }

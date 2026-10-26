@@ -228,10 +228,6 @@ export function HealthRisk() {
         {stale ? "Work it out again" : "Work out my risk"}
       </Button>
       {stale && <Fine>The profile has changed since this was worked out.</Fine>}
-      <Fine>
-        Population statistics describe groups, not individuals. Nothing here is a prediction about
-        you, and none of it leaves this browser.
-      </Fine>
     </>
   );
 
@@ -360,7 +356,7 @@ export function HealthRisk() {
           play={play}
           hint={
             <>
-              Describe a profile on the left, then press <b>Work out my risk</b>.
+              <span>Describe a profile on the left, then press <b>Work out my risk</b>.</span>
             </>
           }
         >

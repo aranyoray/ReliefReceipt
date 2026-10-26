@@ -105,13 +105,6 @@ export function Scan({
           them against the paper before you rely on them.
         </Note>
       )}
-
-      {!compact && (
-        <Fine>
-          The photo is read on this device. The reader itself is downloaded once, about 15 MB, and
-          cached by the browser after that.
-        </Fine>
-      )}
     </Stack>
   );
 }

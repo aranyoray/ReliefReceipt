@@ -108,16 +108,16 @@ export function EnvelopeStage({
           <div className="env-part env-back" aria-hidden="true" />
           <div className="env-part env-pocket" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0 0 L50 55 L100 0 L100 100 L0 100 Z" fill="#fff" stroke="#cfd7e3" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-              <path d="M0 100 L46 58 M100 100 L54 58" fill="none" stroke="#dde3ea" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+              <path d="M0 0 L50 55 L100 0 L100 100 L0 100 Z" fill="#fff" stroke="#d9d0bb" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+              <path d="M0 100 L46 58 M100 100 L54 58" fill="none" stroke="#e6dfcf" strokeWidth="1" vectorEffect="non-scaling-stroke" />
             </svg>
           </div>
           <div className="env-part env-flap" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0 0 L100 0 L50 100 Z" fill="#16233f" />
+              <path d="M0 0 L100 0 L50 100 Z" fill="#1f3d30" />
             </svg>
             <svg className="inside" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0 0 L100 0 L50 100 Z" fill="#2b4a8a" />
+              <path d="M0 0 L100 0 L50 100 Z" fill="#2f6b4f" />
             </svg>
             <span className="env-seal">R</span>
           </div>

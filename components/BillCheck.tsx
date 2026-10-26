@@ -31,7 +31,6 @@ import {
   Lede,
   Legend,
   ListRow,
-  Metric3,
   Note,
   NumberField,
   Ring,
@@ -189,7 +188,7 @@ export function BillCheck({ onUseBalance }: { onUseBalance: () => void }) {
           className="textarea"
           value={text}
           spellCheck={false}
-          placeholder={SAMPLE_BILL}
+          placeholder="Paste the itemised bill here"
           onChange={(e) => setText(e.target.value)}
         />
       </Field>
@@ -228,10 +227,6 @@ export function BillCheck({ onUseBalance }: { onUseBalance: () => void }) {
       </Button>
       {!key && <Fine>Add a bill with at least one coded charge to check it.</Fine>}
       {printedKey !== null && stale && <Fine>The bill has changed since it was checked.</Fine>}
-      <Fine>
-        Nothing is uploaded. Parsing, pricing and photo reading happen in this browser, and the text
-        stays on this device.
-      </Fine>
     </>
   );
 
@@ -242,7 +237,7 @@ export function BillCheck({ onUseBalance }: { onUseBalance: () => void }) {
         play={play}
         hint={
           <>
-            Add a bill on the left, or use the example, then press <b>Check my bill</b>.
+            <span>Add a bill on the left, or use the example, then press <b>Check my bill</b>.</span>
           </>
         }
       >
@@ -349,12 +344,6 @@ function BillSheet({ audit, countyLabel }: { audit: Audit; countyLabel: string |
           <span className={audit.totalRecoverable > 0 ? "num danger" : "num ok"}>{usd(audit.totalRecoverable)}</span>
         </div>
       </div>
-
-      <p className="sheet-note">
-        Billed is what the provider asked for; fair is what the same code typically costs here. A struck
-        line looks like it should not be on the bill at all, so none of its charge counts as fair.
-        Unpriced lines are left out of the totals rather than counted as zero.
-      </p>
     </article>
   );
 }
@@ -475,7 +464,6 @@ function Findings({
                 ]}
               />
             </div>
-            <p className="chart-cap">Running total down the bill, line by line.</p>
           </div>
         </Stack>
       </Card>
@@ -564,7 +552,6 @@ function Findings({
                 />
               ))}
             </div>
-            <Fine>Share of the recoverable total by the kind of problem on the line.</Fine>
           </Stack>
         </Card>
       )}
@@ -584,26 +571,6 @@ function Findings({
         </Card>
       )}
 
-      <Card flush>
-        <div style={{ padding: "16px 18px 4px" }}>
-          <H2>Billed against fair, by category</H2>
-        </div>
-        {cats.map((c) => (
-          <div key={c.key}>
-            <div className="cat-head">
-              <span className="t">{c.key}</span>
-            </div>
-            <Metric3
-              items={[
-                { k: "Billed", v: usd(c.billed) },
-                { k: "Fair", v: usd(c.fair) },
-                c.over > 0 ? { k: "Over", v: usd(c.over), tone: "danger" as const } : { k: "Over", v: "—", tone: "ok" as const },
-              ]}
-            />
-          </div>
-        ))}
-      </Card>
-
       <Card>
         <Stack tight>
           <StatRow>
@@ -612,10 +579,6 @@ function Findings({
             <Stat value={audit.index.toFixed(2)} label={countyName ? `Index, ${countyName}` : "Index, national"} />
           </StatRow>
           <Divider />
-          <Fine>
-            {audit.pricedLines} of {audit.pricedLines + audit.unknownLines} lines matched the price
-            reference.
-          </Fine>
         </Stack>
       </Card>
 
@@ -629,10 +592,6 @@ function Findings({
               label={estimated !== null ? "Estimated with assistance" : "Add your income under Assistance"}
             />
           </StatRow>
-          <Fine>
-            What is left after the disputes is the balance to apply against. Carry it into the
-            assistance letter, with your household details there.
-          </Fine>
           <Button wide onClick={onUseBalance}>
             Use this balance for assistance
           </Button>
@@ -642,11 +601,6 @@ function Findings({
       <Card>
         <Stack tight>
           <H2>The call script</H2>
-          <Fine>
-            What to say to the billing office, naming the findings on this bill
-            {estimated !== null ? " and asking for financial assistance" : ""}. Keep it in front of you
-            on the call.
-          </Fine>
           <Button primary wide onClick={copyScript}>
             {copied ? "Script copied" : "Copy the call script"}
           </Button>
