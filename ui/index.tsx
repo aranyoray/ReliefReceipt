@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
-import { IconCheck, IconChevron, IconClose, IconMoon, IconSun } from "./icons";
+import { IconCheck, IconChevron, IconClose } from "./icons";
 
 export * from "./icons";
 export * from "./charts";
@@ -783,47 +783,6 @@ export function NumberField({
         </div>
       </Sheet>
     </div>
-  );
-}
-
-/* --------------------------------------------------------------------- theme */
-
-/**
- * Light and dark follow the system by default. The toggle pins the other one
- * for people whose phone is in dark mode but who are reading a bill in the
- * sun, and the choice is remembered on the device.
- */
-export function ThemeToggle() {
-  const [theme, setTheme] = useState<"auto" | "light" | "dark">("auto");
-
-  useEffect(() => {
-    try {
-      const s = window.localStorage.getItem("rc_theme");
-      if (s === "light" || s === "dark") {
-        setTheme(s);
-        document.documentElement.dataset.theme = s;
-      }
-    } catch {}
-  }, []);
-
-  const flip = () => {
-    const prefersDark =
-      typeof window !== "undefined" &&
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const now = theme === "auto" ? (prefersDark ? "dark" : "light") : theme;
-    const next = now === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.dataset.theme = next;
-    try {
-      window.localStorage.setItem("rc_theme", next);
-    } catch {}
-  };
-
-  return (
-    <button type="button" className="iconbtn" onClick={flip} aria-label="Switch between light and dark">
-      {theme === "dark" ? <IconSun /> : <IconMoon />}
-    </button>
   );
 }
 

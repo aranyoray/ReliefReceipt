@@ -148,18 +148,6 @@ export const IconSpark = ({ size }: IconProps) =>
     size,
   );
 
-export const IconSun = ({ size }: IconProps) =>
-  svg(
-    <>
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5" />
-    </>,
-    size ?? 20,
-  );
-
-export const IconMoon = ({ size }: IconProps) =>
-  svg(<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" />, size ?? 20);
-
 export const IconList = ({ size }: IconProps) =>
   svg(
     <>
